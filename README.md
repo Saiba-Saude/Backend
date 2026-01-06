@@ -1,70 +1,94 @@
-# Saíba+ Saúde — Backend
+ Saiba Mais Saúde — Backend
 
-## 🎯 Objetivo do Projeto
+API para Gestão e Digitalização dos Serviços de Saúde
 
-O backend do Saíba+ Saúde tem como objetivo sustentar toda a lógica do sistema, garantindo **segurança, organização e confiabilidade das informações**, além de reduzir a burocracia gerada por processos manuais e baseados em papel.
+Visão Geral
 
-A proposta é oferecer uma base sólida para o funcionamento do sistema, permitindo que dados sejam tratados de forma eficiente e acessível, sempre com foco em melhorar a qualidade de vida da população.
+O Saiba Mais Saúde (Backend) é a camada responsável pela lógica de negócio, persistência de dados e comunicação com o frontend, garantindo organização, segurança e confiabilidade das informações de saúde.
 
----
+Ele sustenta a digitalização dos processos administrativos, substituindo controles manuais e registros em papel por operações estruturadas via API.
 
-## 💡 Visão Geral
+Objetivo da API
 
-- Redução de erros humanos  
-- Padronização das informações  
-- Maior agilidade no acesso aos dados  
-- Confiabilidade e integridade das informações  
+Centralizar dados de usuários e atendimentos
 
-Essa estrutura garante que o sistema funcione de forma estável e escalável.
+Garantir integridade e consistência das informações
 
----
+Fornecer serviços padronizados para o frontend
 
-## 🗄️ Banco de Dados
+Sustentar a escalabilidade futura da plataforma
 
-O sistema utiliza **MySQL** como banco de dados relacional, garantindo:
+Funcionalidades da API
 
-- Organização estruturada dos dados  
-- Integridade e consistência das informações  
-- Facilidade de manutenção  
-- Possibilidade de expansão futura  
+Cadastro e gerenciamento de usuários
 
-O uso do MySQL permite que o sistema seja robusto e preparado para crescimento.
+Agendamento de consultas e serviços de saúde
 
----
+Registro e consulta de históricos médicos
 
-## ⚙️ Tecnologias Utilizadas
+Validação e tratamento de dados
 
-- Node.js  
-- Express  
-- MySQL  
-- JavaScript  
+Comunicação REST com o frontend
 
-Essas tecnologias formam uma base eficiente para APIs, regras de negócio e comunicação com o frontend.
+Persistência de Dados
 
----
+Banco de dados relacional MySQL
 
-## 🚀 Impacto Esperado
+Estrutura organizada para usuários, consultas e históricos
 
-- Eliminação de processos manuais e papelada  
-- Melhor gestão das informações  
-- Agilidade nos fluxos de dados  
-- Base segura para serviços digitais  
+Eliminação de dependência de registros físicos
 
-O backend atua como o **coração do sistema**, garantindo que todas as operações ocorram de forma correta e confiável.
+Maior rastreabilidade das informações
 
----
+Organização da Aplicação
 
-## ✨ Considerações Finais
+Separação clara entre frontend e backend
 
-O Saíba+ Saúde Backend foi desenvolvido com foco em **organização, desempenho e impacto social**, servindo como alicerce para uma solução digital que busca simplificar processos e beneficiar diretamente a população.
+Estrutura baseada em serviços
 
----
+Código organizado para facilitar manutenção
 
-## 👥 Autor
+Preparação para validações e controle de acesso futuros
 
-**Equipe 2 Start 2025**  
-- Kauã  
-- Hiago  
-- Thiago  
-- Lucas  
+Stack de Tecnologias
 
+Node.js
+
+MySQL
+
+API REST
+
+
+Execução do Backend
+Pré-requisitos
+
+Node.js
+
+MySQL em execução
+
+# Acesse a pasta do backend
+cd backend
+
+# Instale as dependências
+npm install
+
+# Configure o arquivo .env
+# Utilize o .env.example como base
+
+# Inicie o servidor
+npm run dev
+
+ Situação Atual
+
+ Em evolução
+
+Ajustes finais de integração
+
+Testes de consistência e desempenho
+
+Validação completa dos fluxos de dados
+
+👥 Responsáveis
+
+Equipe 2 Start 2025
+Kauã • Hiago • Thiago • Lucas
