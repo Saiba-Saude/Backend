@@ -10,10 +10,6 @@ A proposta é oferecer uma base sólida para o funcionamento do sistema, permiti
 
 ## 💡 Visão Geral
 
-O backend é responsável por centralizar, processar e organizar os dados do sistema, substituindo processos burocráticos por fluxos digitais mais eficientes.
-
-Com isso, o projeto contribui para:
-
 - Redução de erros humanos  
 - Padronização das informações  
 - Maior agilidade no acesso aos dados  
