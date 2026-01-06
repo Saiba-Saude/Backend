@@ -1,9 +1,9 @@
 const { Sequelize } = require("sequelize");
 
 
-//Usando o Sequelize para conectar ao Banco de Dados "cadastro"
+//Usando o Sequelize para conectar ao Banco de Dados "saibamais"
 const sequelize = new Sequelize(
-    "cadastro",
+    "saibamais",
     "root",
     "root",
     {
