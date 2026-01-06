@@ -1,14 +1,14 @@
- Saiba Mais Saúde — Backend
+🩺 Saiba Mais Saúde — Backend
 
 API para Gestão e Digitalização dos Serviços de Saúde
 
-Visão Geral
+📘 Visão Geral
 
 O Saiba Mais Saúde (Backend) é a camada responsável pela lógica de negócio, persistência de dados e comunicação com o frontend, garantindo organização, segurança e confiabilidade das informações de saúde.
 
 Ele sustenta a digitalização dos processos administrativos, substituindo controles manuais e registros em papel por operações estruturadas via API.
 
-Objetivo da API
+🎯 Objetivo da API
 
 Centralizar dados de usuários e atendimentos
 
@@ -18,7 +18,7 @@ Fornecer serviços padronizados para o frontend
 
 Sustentar a escalabilidade futura da plataforma
 
-Funcionalidades da API
+⚙️ Funcionalidades da API
 
 Cadastro e gerenciamento de usuários
 
@@ -30,7 +30,7 @@ Validação e tratamento de dados
 
 Comunicação REST com o frontend
 
-Persistência de Dados
+🗄️ Persistência de Dados
 
 Banco de dados relacional MySQL
 
@@ -40,7 +40,7 @@ Eliminação de dependência de registros físicos
 
 Maior rastreabilidade das informações
 
-Organização da Aplicação
+🧱 Organização da Aplicação
 
 Separação clara entre frontend e backend
 
@@ -50,19 +50,22 @@ Código organizado para facilitar manutenção
 
 Preparação para validações e controle de acesso futuros
 
-Stack de Tecnologias
+🛠️ Stack de Tecnologias
 
 Node.js
+
+Express
 
 MySQL
 
 API REST
 
+Dotenv
 
-Execução do Backend
+▶️ Execução do Backend
 Pré-requisitos
 
-Node.js
+Node.js (18+)
 
 MySQL em execução
 
@@ -78,9 +81,9 @@ npm install
 # Inicie o servidor
 npm run dev
 
- Situação Atual
+🚧 Situação Atual
 
- Em evolução
+🚧 Em evolução
 
 Ajustes finais de integração
 
