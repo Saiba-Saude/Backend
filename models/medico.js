@@ -1,15 +1,11 @@
 const bcrypt = require("bcrypt");
 const db = require("../config/db");
 
-const Paciente = db.sequelize.define("paciente", {
-    idpacientes: {
+const Medico = db.sequelize.define("medico", {
+    idmedicos: {
         type: db.Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
-    },
-    cartaosus: {
-        type: db.Sequelize.STRING(20),
-        allowNull: false
     },
     nome: {
         type: db.Sequelize.STRING(80),
@@ -23,16 +19,12 @@ const Paciente = db.sequelize.define("paciente", {
         type: db.Sequelize.DATE,
         allowNull: false
     },
-    telefone: {
-        type: db.Sequelize.STRING(30),
-        allowNull: false
-    },
-    bairro: {
+    crm: {
         type: db.Sequelize.STRING(45),
         allowNull: false
     },
-    municipio: {
-        type: db.Sequelize.STRING(45),
+    especializacao: {
+        type: db.Sequelize.STRING(80),
         allowNull: false
     },
     senha: {
@@ -41,15 +33,15 @@ const Paciente = db.sequelize.define("paciente", {
     }
 }, {
     hooks: {
-        beforeCreate: async (paciente) => {
-            paciente.senha = await bcrypt.hash(paciente.senha, 10);
+        beforeCreate: async (medico) => {
+            medico.senha = await bcrypt.hash(medico.senha, 10);
         },
-        beforeUpdate: async (paciente) => {
-            if (paciente.changed("senha")) {
-                paciente.senha = await bcrypt.hash(paciente.senha, 10);
+        beforeUpdate: async (medico) => {
+            if (medico.changed("senha")) {
+                medico.senha = await bcrypt.hash(medico.senha, 10);
             }
         }
     }
 });
 
-module.exports = Paciente;
+module.exports = Medico;

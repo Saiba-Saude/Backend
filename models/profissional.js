@@ -1,15 +1,11 @@
 const bcrypt = require("bcrypt");
 const db = require("../config/db");
 
-const Paciente = db.sequelize.define("paciente", {
-    idpacientes: {
+const Profissional = db.sequelize.define("profissional", {
+    idprofissionais: {
         type: db.Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
-    },
-    cartaosus: {
-        type: db.Sequelize.STRING(20),
-        allowNull: false
     },
     nome: {
         type: db.Sequelize.STRING(80),
@@ -23,15 +19,15 @@ const Paciente = db.sequelize.define("paciente", {
         type: db.Sequelize.DATE,
         allowNull: false
     },
+    cpf: {
+        type: db.Sequelize.BIGINT,
+        allowNull: false
+    },
+    rg: {
+        type: db.Sequelize.BIGINT,
+        allowNull: false
+    },
     telefone: {
-        type: db.Sequelize.STRING(30),
-        allowNull: false
-    },
-    bairro: {
-        type: db.Sequelize.STRING(45),
-        allowNull: false
-    },
-    municipio: {
         type: db.Sequelize.STRING(45),
         allowNull: false
     },
@@ -41,15 +37,15 @@ const Paciente = db.sequelize.define("paciente", {
     }
 }, {
     hooks: {
-        beforeCreate: async (paciente) => {
-            paciente.senha = await bcrypt.hash(paciente.senha, 10);
+        beforeCreate: async (profissional) => {
+            profissional.senha = await bcrypt.hash(profissional.senha, 10);
         },
-        beforeUpdate: async (paciente) => {
-            if (paciente.changed("senha")) {
-                paciente.senha = await bcrypt.hash(paciente.senha, 10);
+        beforeUpdate: async (profissional) => {
+            if (profissional.changed("senha")) {
+                profissional.senha = await bcrypt.hash(profissional.senha, 10);
             }
         }
     }
 });
 
-module.exports = Paciente;
+module.exports = Profissional;
