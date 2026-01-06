@@ -1,56 +1,59 @@
-🩺 Saiba Mais Saúde — Backend
+Saiba Mais Saúde — Backend
 
-API para Gestão e Digitalização dos Serviços de Saúde
+API para Gestão e Organização dos Serviços de Saúde Pública
 
-📘 Visão Geral
+Visão Geral
 
-O Saiba Mais Saúde (Backend) é a camada responsável pela lógica de negócio, persistência de dados e comunicação com o frontend, garantindo organização, segurança e confiabilidade das informações de saúde.
+O Saiba Mais Saúde – Backend é responsável por toda a lógica de negócio, persistência de dados e comunicação entre a aplicação web e o banco de dados.
+Ele sustenta a digitalização dos processos administrativos e assistenciais, substituindo fluxos manuais e registros em papel por operações estruturadas, seguras e automatizadas.
 
-Ele sustenta a digitalização dos processos administrativos, substituindo controles manuais e registros em papel por operações estruturadas via API.
+A API foi pensada para garantir integridade, consistência e confiabilidade das informações relacionadas aos usuários e aos atendimentos de saúde.
 
-🎯 Objetivo da API
+Objetivo da API
 
-Centralizar dados de usuários e atendimentos
+Centralizar e organizar dados de usuários e atendimentos
 
-Garantir integridade e consistência das informações
+Garantir consistência e integridade das informações
 
-Fornecer serviços padronizados para o frontend
+Eliminar a dependência de registros físicos e papéis
 
-Sustentar a escalabilidade futura da plataforma
+Disponibilizar serviços padronizados para consumo pelo frontend
 
-⚙️ Funcionalidades da API
+Sustentar a evolução e escalabilidade futura da plataforma
 
-Cadastro e gerenciamento de usuários
+Funcionalidades Implementadas
 
-Agendamento de consultas e serviços de saúde
+API REST para cadastro e gerenciamento de usuários
 
-Registro e consulta de históricos médicos
+API para agendamento de consultas e serviços de saúde
 
-Validação e tratamento de dados
+Registro e consulta de histórico médico
 
-Comunicação REST com o frontend
+Validação e tratamento de dados recebidos
 
-🗄️ Persistência de Dados
+Comunicação estruturada com o frontend
+
+Persistência e Organização dos Dados
 
 Banco de dados relacional MySQL
 
 Estrutura organizada para usuários, consultas e históricos
 
-Eliminação de dependência de registros físicos
+Armazenamento seguro e rastreável das informações
 
-Maior rastreabilidade das informações
+Melhoria na confiabilidade e no controle dos dados
 
-🧱 Organização da Aplicação
+Arquitetura da Aplicação
 
 Separação clara entre frontend e backend
 
-Estrutura baseada em serviços
+Organização baseada em serviços
 
-Código organizado para facilitar manutenção
+Código estruturado para facilitar manutenção e evolução
 
-Preparação para validações e controle de acesso futuros
+Preparação para futuras camadas de validação e controle de acesso
 
-🛠️ Stack de Tecnologias
+Tecnologias Utilizadas
 
 Node.js
 
@@ -62,36 +65,40 @@ API REST
 
 Dotenv
 
-▶️ Execução do Backend
+Execução do Projeto
 Pré-requisitos
 
-Node.js (18+)
+Node.js versão 18 ou superior
 
-MySQL em execução
+Banco de dados MySQL em execução
 
-# Acesse a pasta do backend
+Passos para execução
+# Acessar a pasta do backend
 cd backend
 
-# Instale as dependências
+# Instalar as dependências
 npm install
 
-# Configure o arquivo .env
-# Utilize o .env.example como base
+# Configurar o arquivo .env
+# Utilizar o .env.example como referência
 
-# Inicie o servidor
+# Iniciar o servidor em modo de desenvolvimento
 npm run dev
 
-🚧 Situação Atual
+Situação Atual do Projeto
 
-🚧 Em evolução
+Em desenvolvimento
 
-Ajustes finais de integração
+Ajustes finais de integração com o frontend
 
 Testes de consistência e desempenho
 
 Validação completa dos fluxos de dados
 
-👥 Responsáveis
+Autores
 
 Equipe 2 Start 2025
-Kauã • Hiago • Thiago • Lucas
+Kauã
+Hiago
+Thiago
+Lucas
