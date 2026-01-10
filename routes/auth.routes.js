@@ -20,11 +20,7 @@ const AuthController = require("../controllers/authController");
  *       content:
  *         application/json:
  *           schema:
-<<<<<<< HEAD
  *             $ref: '#/components/schemas/LoginProfissionalInput'
-=======
- *             $ref: '#/components/schemas/LoginInput'
->>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     responses:
  *       200:
  *         description: Login realizado com sucesso
@@ -48,11 +44,7 @@ router.post("/login/profissional", AuthController.loginProfissional);
  *       content:
  *         application/json:
  *           schema:
-<<<<<<< HEAD
  *             $ref: '#/components/schemas/LoginMedicoInput'
-=======
- *             $ref: '#/components/schemas/LoginInput'
->>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     responses:
  *       200:
  *         description: Login realizado com sucesso
@@ -76,11 +68,7 @@ router.post("/login/medico", AuthController.loginMedico);
  *       content:
  *         application/json:
  *           schema:
-<<<<<<< HEAD
  *             $ref: '#/components/schemas/LoginPacienteInput'
-=======
- *             $ref: '#/components/schemas/LoginInput'
->>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     responses:
  *       200:
  *         description: Login realizado com sucesso
