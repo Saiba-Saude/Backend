@@ -2,6 +2,10 @@ const bcrypt = require("bcrypt");
 const Profissional = require("../models/profissional");
 const Medico = require("../models/medico");
 const Paciente = require("../models/paciente");
+<<<<<<< HEAD
+const { gerarToken } = require("../utils/jwt");
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 class AuthService {
 
@@ -23,7 +27,18 @@ class AuthService {
         const dados = profissional.toJSON();
         delete dados.senha;
 
+<<<<<<< HEAD
+        const token = gerarToken({
+            id: dados.id,
+            tipo: "PROFISSIONAL"
+        });
+
+        return {
+            token
+        };
+=======
         return dados;
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
     }
 
     async loginMedico(crm, senha) {
@@ -44,7 +59,18 @@ class AuthService {
         const dados = medico.toJSON();
         delete dados.senha;
 
+<<<<<<< HEAD
+        const token = gerarToken({
+            id: dados.id,
+            tipo: "MEDICO"
+        });
+
+        return {
+            token
+        };
+=======
         return dados;
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
     }
 
     async loginPaciente(cartaosus, senha) {
@@ -65,7 +91,18 @@ class AuthService {
         const dados = paciente.toJSON();
         delete dados.senha;
 
+<<<<<<< HEAD
+        const token = gerarToken({
+            id: dados.id,
+            tipo: "PACIENTE"
+        });
+
+        return {
+            token
+        };
+=======
         return dados;
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
     }
 }
 

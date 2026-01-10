@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const agendamentoController = require("../controllers/agendamentoController");
+<<<<<<< HEAD
+const authMiddleware = require("../middlewares/authMiddleware");
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -15,6 +19,11 @@ const agendamentoController = require("../controllers/agendamentoController");
  *   post:
  *     summary: Criar um novo agendamento
  *     tags: [Agendamento]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     requestBody:
  *       required: true
  *       content:
@@ -29,7 +38,11 @@ const agendamentoController = require("../controllers/agendamentoController");
  *             schema:
  *               $ref: '#/components/schemas/Agendamento'
  */
+<<<<<<< HEAD
+router.post("/", authMiddleware, agendamentoController.criar);
+=======
 router.post("/", agendamentoController.criar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -37,6 +50,11 @@ router.post("/", agendamentoController.criar);
  *   get:
  *     summary: Listar todos os agendamentos
  *     tags: [Agendamento]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     responses:
  *       200:
  *         description: Lista de agendamentos
@@ -47,7 +65,11 @@ router.post("/", agendamentoController.criar);
  *               items:
  *                 $ref: '#/components/schemas/Agendamento'
  */
+<<<<<<< HEAD
+router.get("/", authMiddleware, agendamentoController.listar);
+=======
 router.get("/", agendamentoController.listar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -55,6 +77,11 @@ router.get("/", agendamentoController.listar);
  *   get:
  *     summary: Buscar um agendamento pelo ID
  *     tags: [Agendamento]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -71,7 +98,11 @@ router.get("/", agendamentoController.listar);
  *       404:
  *         description: Agendamento não encontrado
  */
+<<<<<<< HEAD
+router.get("/:id", authMiddleware, agendamentoController.buscarPorId);
+=======
 router.get("/:id", agendamentoController.buscarPorId);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -79,6 +110,11 @@ router.get("/:id", agendamentoController.buscarPorId);
  *   patch:
  *     summary: Atualizar um agendamento pelo ID
  *     tags: [Agendamento]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -101,7 +137,11 @@ router.get("/:id", agendamentoController.buscarPorId);
  *       404:
  *         description: Agendamento não encontrado
  */
+<<<<<<< HEAD
+router.patch("/:id", authMiddleware, agendamentoController.atualizar);
+=======
 router.patch("/:id", agendamentoController.atualizar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -109,6 +149,11 @@ router.patch("/:id", agendamentoController.atualizar);
  *   delete:
  *     summary: Deletar um agendamento pelo ID
  *     tags: [Agendamento]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -121,6 +166,10 @@ router.patch("/:id", agendamentoController.atualizar);
  *       404:
  *         description: Agendamento não encontrado
  */
+<<<<<<< HEAD
+router.delete("/:id", authMiddleware, agendamentoController.deletar);
+=======
 router.delete("/:id", agendamentoController.deletar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 module.exports = router;

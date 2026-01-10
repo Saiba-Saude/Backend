@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const triagemController = require("../controllers/triagemController");
+<<<<<<< HEAD
+const authMiddleware = require("../middlewares/authMiddleware");
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -15,6 +19,11 @@ const triagemController = require("../controllers/triagemController");
  *   post:
  *     summary: Criar uma nova triagem
  *     tags: [Triagem]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     requestBody:
  *       required: true
  *       content:
@@ -29,7 +38,11 @@ const triagemController = require("../controllers/triagemController");
  *             schema:
  *               $ref: '#/components/schemas/Triagem'
  */
+<<<<<<< HEAD
+router.post("/", authMiddleware, triagemController.criar);
+=======
 router.post("/", triagemController.criar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -37,6 +50,11 @@ router.post("/", triagemController.criar);
  *   get:
  *     summary: Listar todas as triagens
  *     tags: [Triagem]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     responses:
  *       200:
  *         description: Lista de triagens
@@ -47,7 +65,11 @@ router.post("/", triagemController.criar);
  *               items:
  *                 $ref: '#/components/schemas/Triagem'
  */
+<<<<<<< HEAD
+router.get("/", authMiddleware, triagemController.listar);
+=======
 router.get("/", triagemController.listar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -55,6 +77,11 @@ router.get("/", triagemController.listar);
  *   get:
  *     summary: Buscar uma triagem pelo ID
  *     tags: [Triagem]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -71,7 +98,11 @@ router.get("/", triagemController.listar);
  *       404:
  *         description: Triagem não encontrada
  */
+<<<<<<< HEAD
+router.get("/:id", authMiddleware, triagemController.buscarPorId);
+=======
 router.get("/:id", triagemController.buscarPorId);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -79,6 +110,11 @@ router.get("/:id", triagemController.buscarPorId);
  *   patch:
  *     summary: Atualizar uma triagem pelo ID
  *     tags: [Triagem]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -101,7 +137,11 @@ router.get("/:id", triagemController.buscarPorId);
  *       404:
  *         description: Triagem não encontrada
  */
+<<<<<<< HEAD
+router.patch("/:id", authMiddleware, triagemController.atualizar);
+=======
 router.patch("/:id", triagemController.atualizar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 /**
  * @swagger
@@ -109,6 +149,11 @@ router.patch("/:id", triagemController.atualizar);
  *   delete:
  *     summary: Deletar uma triagem pelo ID
  *     tags: [Triagem]
+<<<<<<< HEAD
+ *     security:
+ *      - bearerAuth: []
+=======
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
  *     parameters:
  *       - in: path
  *         name: id
@@ -121,6 +166,10 @@ router.patch("/:id", triagemController.atualizar);
  *       404:
  *         description: Triagem não encontrada
  */
+<<<<<<< HEAD
+router.delete("/:id", authMiddleware, triagemController.deletar);
+=======
 router.delete("/:id", triagemController.deletar);
+>>>>>>> fbe1350d61609c6778838c7a8ec4e2b661faa0ca
 
 module.exports = router;
