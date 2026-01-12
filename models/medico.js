@@ -16,7 +16,7 @@ const Medico = db.sequelize.define("medico", {
         allowNull: false
     },
     nascimento: {
-        type: db.Sequelize.DATE,
+        type: db.Sequelize.DATEONLY,
         allowNull: false
     },
     crm: {
@@ -32,6 +32,7 @@ const Medico = db.sequelize.define("medico", {
         allowNull: false
     }
 }, {
+    timestamps: false,
     hooks: {
         beforeCreate: async (medico) => {
             medico.senha = await bcrypt.hash(medico.senha, 10);

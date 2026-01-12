@@ -1,6 +1,6 @@
 const Unidade = require("../models/unidade");
 const Medico = require("../models/medico");
-const Profissional = require("../models/profissional");
+const Profissional = require("../models/profissionais");
 const NotFoundError = require("../exceptions/NotFoundError");
 
 class UnidadeService {

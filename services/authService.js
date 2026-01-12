@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const Profissional = require("../models/profissional");
+const Profissional = require("../models/profissionais");
 const Medico = require("../models/medico");
 const Paciente = require("../models/paciente");
 const { gerarToken } = require("../utils/jwt");
