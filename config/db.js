@@ -1,16 +1,23 @@
-const { Sequelize } = require("sequelize");
+ const { Sequelize } = require("sequelize");
 
+require("dotenv").config();
 
-//Usando o Sequelize para conectar ao Banco de Dados "saibamais"
 const sequelize = new Sequelize(
-    "saibamais",
-    "root",
-    "root",
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
-        host: "localhost",
-        dialect: "mysql"
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        dialect: process.env.DB_DIALECT,
+        logging: false
     }
 );
+
+module.exports = sequelize;
+
+
+
 
 //Verificando a Conexão com o Banco de Dados//
 sequelize.authenticate().then(( ()=>{
