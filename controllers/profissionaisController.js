@@ -1,4 +1,4 @@
-const profissionalService = require("../services/profissionalService");
+const profissionalService = require("../services/profissionaisService");
 
 class ProfissionalController {
     async criar(req, res) {

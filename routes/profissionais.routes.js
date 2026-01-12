@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const profissionalController = require("../controllers/profissionalController");
+const profissionalController = require("../controllers/profissionaisController");
 
 /**
  * @swagger
@@ -29,7 +29,35 @@ const profissionalController = require("../controllers/profissionalController");
  *             schema:
  *               $ref: '#/components/schemas/Profissional'
  */
-router.post("/", profissionalController.criar);
+
+router.post("/", async (req, res) => {
+  try {
+    console.log("BODY RECEBIDO:", req.body)
+
+    res.status(201).json({
+      message: "Profissional criado com sucesso",
+      data: req.body,
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: "Erro interno" })
+  }
+})
+
+
+router.post("/profissionais", async (req, res) => {
+  try {
+    const profissional = await Profissional.create(req.body)
+    res.status(201).json(profissional)
+  } catch (error) {
+    console.error("ERRO AO CRIAR PROFISSIONAL:", error)
+    res.status(500).json({
+      message: "Erro interno no servidor",
+      error: error.message
+    })
+  }
+})
+
 
 /**
  * @swagger

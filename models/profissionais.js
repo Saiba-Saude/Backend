@@ -16,15 +16,15 @@ const Profissional = db.sequelize.define("profissional", {
         allowNull: false
     },
     nascimento: {
-        type: db.Sequelize.DATE,
+        type: db.Sequelize.DATEONLY,
         allowNull: false
     },
     cpf: {
-        type: db.Sequelize.BIGINT,
+        type: db.Sequelize.STRING,
         allowNull: false
     },
     rg: {
-        type: db.Sequelize.BIGINT,
+        type: db.Sequelize.STRING,
         allowNull: false
     },
     telefone: {
@@ -36,6 +36,8 @@ const Profissional = db.sequelize.define("profissional", {
         allowNull: false
     }
 }, {
+    tableName: "profissionais",
+    timestamps: false,
     hooks: {
         beforeCreate: async (profissional) => {
             profissional.senha = await bcrypt.hash(profissional.senha, 10);
