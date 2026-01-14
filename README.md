@@ -1,101 +1,102 @@
-Saiba Mais Saúde — Backend
+#  SAIBA + SAÚDE
+## Backend — API e Serviços
 
-API para Gestão e Organização dos Serviços de Saúde Pública
+---
 
-Visão Geral
+##  Visão Geral
 
-O Saiba Mais Saúde – Backend é responsável por toda a lógica de negócio, persistência de dados e comunicação entre a aplicação web e o banco de dados.
-Ele sustenta a digitalização dos processos administrativos e assistenciais, substituindo fluxos manuais e registros em papel por operações estruturadas, seguras e automatizadas.
+Este repositório contém o **BACKEND da plataforma Saiba + Saúde**, responsável por:
 
-A API foi pensada para garantir integridade, consistência e confiabilidade das informações relacionadas aos usuários e aos atendimentos de saúde.
+- Regras de negócio
+- Persistência de dados
+- Autenticação e controle de acesso
+- Comunicação entre serviços
 
-Objetivo da API
+A arquitetura foi pensada para **escala, segurança e manutenção a longo prazo**.
 
-Centralizar e organizar dados de usuários e atendimentos
+---
 
-Garantir consistência e integridade das informações
+##  Stack Principal
 
-Eliminar a dependência de registros físicos e papéis
+###  Node.js + Express
 
-Disponibilizar serviços padronizados para consumo pelo frontend
+A API foi desenvolvida com **Node.js** e **Express**, garantindo:
 
-Sustentar a evolução e escalabilidade futura da plataforma
+- Performance
+- Simplicidade
+- Facilidade de integração com outras camadas do sistema
 
-Funcionalidades Implementadas
+---
 
-API REST para cadastro e gerenciamento de usuários
+##  Arquitetura
 
-API para agendamento de consultas e serviços de saúde
+###  Microservices
 
-Registro e consulta de histórico médico
+O backend segue uma arquitetura baseada em **microservices**, permitindo:
 
-Validação e tratamento de dados recebidos
+- Separação clara de responsabilidades  
+- Escalabilidade independente dos serviços  
+- Facilidade de manutenção e evolução  
 
-Comunicação estruturada com o frontend
+---
 
-Persistência e Organização dos Dados
+##  Autenticação & Controle de Acesso
 
-Banco de dados relacional MySQL
+### Em desenvolvimento:
 
-Estrutura organizada para usuários, consultas e históricos
+- Autenticação baseada em **JWT (JSON Web Token)**
+- Uso de **Refresh Token** para maior segurança e controle de sessão
+- Implementação de **RBAC (Role-Based Access Control)** para controle de permissões por tipo de usuário
 
-Armazenamento seguro e rastreável das informações
+Essa abordagem garante um fluxo seguro e flexível para diferentes perfis de acesso.
 
-Melhoria na confiabilidade e no controle dos dados
+---
 
-Arquitetura da Aplicação
+##  Banco de Dados & ORM
 
-Separação clara entre frontend e backend
+###  Sequelize
 
-Organização baseada em serviços
+Utilizamos **Sequelize** como ORM para interação com o banco de dados.
 
-Código estruturado para facilitar manutenção e evolução
+Principais benefícios:
 
-Preparação para futuras camadas de validação e controle de acesso
+- Manipulação do banco usando **objetos JavaScript**
+- Redução do uso de SQL puro
+- Código mais limpo e manutenível
 
-Tecnologias Utilizadas
+---
 
-Node.js
+###  Migrations
 
-MySQL
+O projeto utiliza **migrations integradas**, permitindo:
 
-API REST
+- Controle de versões do banco de dados
+- Alterações seguras na estrutura
+- Padronização entre ambientes (dev, staging, produção)
 
+Sem migrations, qualquer mudança no banco se torna um risco — aqui, isso é evitado.
 
-Execução do Projeto
-Pré-requisitos
+---
 
-Node.js versão 18 ou superior
+##  Segurança
 
-Banco de dados MySQL em execução
+- Proteção contra **SQL Injection**
+- Uso de ORM para sanitização de queries
+- Estrutura preparada para autenticação segura
+- Deploy mais confiável e previsível
 
-Passos para execução
-# Acessar a pasta do backend
-cd backend
+---
 
-# Instalar as dependências
-npm install
+##  Integração
 
-# Configurar o arquivo .env
-# Utilizar o .env.example como referência
+O combo **Express + Sequelize** garante:
 
-# Iniciar o servidor em modo de desenvolvimento
-npm run dev
+- Desenvolvimento ágil
+- Estrutura sólida
+- Facilidade de expansão da API
 
-Situação Atual do Projeto
+---
 
-Em desenvolvimento
+##  Saiba + Saúde
+### Tecnologia que aproxima. Gestão que transforma.
 
-Ajustes finais de integração com o frontend
-
-Testes de consistência e desempenho
-
-Validação completa dos fluxos de dados
-
-Autores
-
-Equipe 2 Start 2025
-Kauã
-Hiago
-Thiago
-Lucas
