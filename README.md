@@ -1,11 +1,11 @@
-#  SAIBA + SAÚDE
-## Backend — API e Serviços
+  SAIBA + SAÚDE
+  Backend — API e Serviços
 
----
 
-##  Visão Geral
 
-Este repositório contém o **BACKEND da plataforma Saiba + Saúde**, responsável por:
+  Visão Geral
+
+Este repositório contém o BACKEND da plataforma Saiba + Saúde**, responsável por:
 
 - Regras de negócio
 - Persistência de dados
@@ -14,11 +14,9 @@ Este repositório contém o **BACKEND da plataforma Saiba + Saúde**, responsáv
 
 A arquitetura foi pensada para **escala, segurança e manutenção a longo prazo**.
 
----
+  Stack Principal
 
-##  Stack Principal
-
-###  Node.js + Express
+  Node.js + Express
 
 A API foi desenvolvida com **Node.js** e **Express**, garantindo:
 
@@ -26,11 +24,9 @@ A API foi desenvolvida com **Node.js** e **Express**, garantindo:
 - Simplicidade
 - Facilidade de integração com outras camadas do sistema
 
----
+  Arquitetura
 
-##  Arquitetura
-
-###  Microservices
+  Microsservices
 
 O backend segue uma arquitetura baseada em **microservices**, permitindo:
 
@@ -38,11 +34,10 @@ O backend segue uma arquitetura baseada em **microservices**, permitindo:
 - Escalabilidade independente dos serviços  
 - Facilidade de manutenção e evolução  
 
----
 
-##  Autenticação & Controle de Acesso
+  Autenticação & Controle de Acesso
 
-### Em desenvolvimento:
+   Em desenvolvimento:
 
 - Autenticação baseada em **JWT (JSON Web Token)**
 - Uso de **Refresh Token** para maior segurança e controle de sessão
@@ -50,11 +45,10 @@ O backend segue uma arquitetura baseada em **microservices**, permitindo:
 
 Essa abordagem garante um fluxo seguro e flexível para diferentes perfis de acesso.
 
----
 
-##  Banco de Dados & ORM
+  Banco de Dados & ORM
 
-###  Sequelize
+  Sequelize
 
 Utilizamos **Sequelize** como ORM para interação com o banco de dados.
 
@@ -64,9 +58,7 @@ Principais benefícios:
 - Redução do uso de SQL puro
 - Código mais limpo e manutenível
 
----
-
-###  Migrations
+  Migrations
 
 O projeto utiliza **migrations integradas**, permitindo:
 
@@ -78,16 +70,15 @@ Sem migrations, qualquer mudança no banco se torna um risco — aqui, isso é e
 
 ---
 
-##  Segurança
+  Segurança
 
 - Proteção contra **SQL Injection**
 - Uso de ORM para sanitização de queries
 - Estrutura preparada para autenticação segura
 - Deploy mais confiável e previsível
 
----
 
-##  Integração
+  Integração
 
 O combo **Express + Sequelize** garante:
 
@@ -97,6 +88,6 @@ O combo **Express + Sequelize** garante:
 
 ---
 
-##  Saiba + Saúde
-### Tecnologia que aproxima. Gestão que transforma.
+  Saiba + Saúde
+Tecnologia que aproxima. Gestão que transforma.
 
