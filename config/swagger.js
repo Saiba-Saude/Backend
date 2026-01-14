@@ -46,6 +46,30 @@ const options = {
             },
           },
         },
+        LoginProfissionalInput: {
+          type: "object",
+          required: ["cpf", "senha"],
+          properties: {
+            cpf: { type: "string", example: "usuario@email.com" },
+            senha: { type: "string", example: "senha123" },
+          },
+        },
+LoginMedicoInput: {
+          type: "object",
+          required: ["crm", "senha"],
+          properties: {
+            crm: { type: "string", example: "usuario@email.com" },
+            senha: { type: "string", example: "senha123" },
+          },
+        },
+LoginPacienteInput: {
+          type: "object",
+          required: ["cartaosus", "senha"],
+          properties: {
+            cartaosus: { type: "string", example: "usuario@email.com" },
+            senha: { type: "string", example: "senha123" },
+          },
+        },
 
         /* ====== Paciente ====== */
         Paciente: {

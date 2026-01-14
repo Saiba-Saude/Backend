@@ -1,46 +1,78 @@
 const Medico = require("../models/medico");
+const AppError = require("../exceptions/AppError");
 const NotFoundError = require("../exceptions/NotFoundError");
 
 class MedicoService {
     async criar(dados) {
-        return await Medico.create(dados);
+        try {
+            return await Medico.create(dados);
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao criar médico", 500);
+        }
     }
 
     async listar() {
-        return await Medico.findAll({
-            attributes: { exclude: ["senha"] }
-        });
+        try {
+            return await Medico.findAll({
+                attributes: { exclude: ["senha"] }
+            });
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao listar médicos", 500);
+        }
     }
 
     async buscarPorId(id) {
-        const medico = await Medico.findByPk(id);
+        try {
+            const medico = await Medico.findByPk({
+                where: { idmedicos: id }
+            });
 
-        if (!medico) {
-            throw new NotFoundError("Médico não encontrado");
+            if (!medico) {
+                throw new NotFoundError("Médico não encontrado");
+            }
+
+            return medico;
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao buscar médico", 500);
         }
-
-        return medico;
     }
 
     async atualizar(id, dados) {
-        const medico = await Medico.findByPk(id);
+        try {
+            const medico = await Medico.findByPk({
+                where: { idmedicos: id }
+            });
 
-        if (!medico) {
-            throw new NotFoundError("Médico não encontrado");
+            if (!medico) {
+                throw new NotFoundError("Médico não encontrado");
+            }
+
+            await medico.update(dados);
+            return medico;
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao atualizar médico", 500);
         }
-
-        await medico.update(dados);
-        return medico;
     }
 
     async deletar(id) {
-        const medico = await Medico.findByPk(id);
+        try {
+            const medico = await Medico.findByPk({
+                where: { idmedicos: id }
+            });
 
-        if (!medico) {
-            throw new NotFoundError("Médico não encontrado");
+            if (!medico) {
+                throw new NotFoundError("Médico não encontrado");
+            }
+
+            await medico.destroy();
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao deletar médico", 500);
         }
-
-        await medico.destroy();
     }
 }
 

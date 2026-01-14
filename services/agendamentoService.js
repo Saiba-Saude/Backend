@@ -2,57 +2,97 @@ const Agendamento = require("../models/agendamento");
 const Paciente = require("../models/paciente");
 const Triagem = require("../models/triagem");
 const Unidade = require("../models/unidade");
+const AppError = require("../exceptions/AppError");
 const NotFoundError = require("../exceptions/NotFoundError");
 
 class AgendamentoService {
+
     async criar(dados) {
-        const paciente = await Paciente.findByPk(dados.pacientes_idpacientes);
-        if (!paciente) throw new NotFoundError("Paciente não encontrado");
+        try {
+            const paciente = await Paciente.findOne({
+                where: { idpacientes: dados.pacientes_idpacientes }
+            });
+            if (!paciente) throw new NotFoundError("Paciente não encontrado");
 
-        const triagem = await Triagem.findByPk(dados.triagem_idtriagem);
-        if (!triagem) throw new NotFoundError("Triagem não encontrada");
+            const triagem = await Triagem.findOne({
+                where: { idtriagem: dados.triagem_idtriagem }
+            });
+            if (!triagem) throw new NotFoundError("Triagem não encontrada");
 
-        const unidade = await Unidade.findByPk(dados.unidades_idunidades);
-        if (!unidade) throw new NotFoundError("Unidade não encontrada");
+            const unidade = await Unidade.findOne({
+                where: { idunidades: dados.unidades_idunidades }
+            });
+            if (!unidade) throw new NotFoundError("Unidade não encontrada");
 
-        return await Agendamento.create(dados);
+            return await Agendamento.create(dados);
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao criar agendamento", 500);
+        }
     }
 
     async listar() {
-        return await Agendamento.findAll({
-            include: [Paciente, Triagem, Unidade]
-        });
+        try {
+            return await Agendamento.findAll({
+                include: [Paciente, Triagem, Unidade]
+            });
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao listar agendamentos", 500);
+        }
     }
 
     async buscarPorId(id) {
-        const agendamento = await Agendamento.findByPk(id, {
-            include: [Paciente, Triagem, Unidade]
-        });
+        try {
+            const agendamento = await Agendamento.findOne({
+                where: { idagendamentos: id },
+                include: [Paciente, Triagem, Unidade]
+            });
 
-        if (!agendamento) {
-            throw new NotFoundError("Agendamento não encontrado");
+            if (!agendamento) {
+                throw new NotFoundError("Agendamento não encontrado");
+            }
+
+            return agendamento;
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao buscar agendamento", 500);
         }
-
-        return agendamento;
     }
 
     async atualizar(id, dados) {
-        const agendamento = await Agendamento.findByPk(id);
-        if (!agendamento) {
-            throw new NotFoundError("Agendamento não encontrado");
-        }
+        try {
+            const agendamento = await Agendamento.findOne({
+                where: { idagendamentos: id }
+            });
 
-        await agendamento.update(dados);
-        return agendamento;
+            if (!agendamento) {
+                throw new NotFoundError("Agendamento não encontrado");
+            }
+
+            await agendamento.update(dados);
+            return agendamento;
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao atualizar agendamento", 500);
+        }
     }
 
     async deletar(id) {
-        const agendamento = await Agendamento.findByPk(id);
-        if (!agendamento) {
-            throw new NotFoundError("Agendamento não encontrado");
-        }
+        try {
+            const agendamento = await Agendamento.findOne({
+                where: { idagendamentos: id }
+            });
 
-        await agendamento.destroy();
+            if (!agendamento) {
+                throw new NotFoundError("Agendamento não encontrado");
+            }
+
+            await agendamento.destroy();
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao deletar agendamento", 500);
+        }
     }
 }
 

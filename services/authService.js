@@ -3,91 +3,104 @@ const Profissional = require("../models/profissionais");
 const Medico = require("../models/medico");
 const Paciente = require("../models/paciente");
 const { gerarToken } = require("../utils/jwt");
+const AppError = require("../exceptions/AppError");
+const BadRequestError = require("../exceptions/BadRequestError");
 
 class AuthService {
 
     async loginProfissional(cpf, senha) {
-        const profissional = await Profissional.scope(null).findOne({
-            where: { cpf }
-        });
+        try {
+            const profissional = await Profissional.scope(null).findOne({
+                where: { cpf }
+            });
 
-        if (!profissional) {
-            throw new Error("CPF ou senha inválidos");
+            if (!profissional) {
+                throw new BadRequestError("CPF ou senha inválidos");
+            }
+
+            const senhaValida = await bcrypt.compare(senha, profissional.senha);
+
+            if (!senhaValida) {
+                throw new BadRequestError("CPF ou senha inválidos");
+            }
+
+            const dados = profissional.toJSON();
+            delete dados.senha;
+
+            const token = gerarToken({
+                id: dados.id,
+                tipo: "PROFISSIONAL"
+            });
+
+            return { token };
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao realizar login do profissional", 500);
         }
-
-        const senhaValida = await bcrypt.compare(senha, profissional.senha);
-
-        if (!senhaValida) {
-            throw new Error("CPF ou senha inválidos");
-        }
-
-        const dados = profissional.toJSON();
-        delete dados.senha;
-
-        const token = gerarToken({
-            id: dados.id,
-            tipo: "PROFISSIONAL"
-        });
-
-        return {
-            token
-        };
     }
 
     async loginMedico(crm, senha) {
-        const medico = await Medico.scope(null).findOne({
-            where: { crm }
-        });
+        try {
+            const medico = await Medico.scope(null).findOne({
+                where: { crm }
+            });
 
-        if (!medico) {
-            throw new Error("CRM ou senha inválidos");
+            if (!medico) {
+                throw new BadRequestError("CRM ou senha inválidos");
+            }
+
+            const senhaValida = await bcrypt.compare(senha, medico.senha);
+
+            if (!senhaValida) {
+                throw new BadRequestError("CRM ou senha inválidos");
+            }
+
+            const dados = medico.toJSON();
+            delete dados.senha;
+
+            const token = gerarToken({
+                id: dados.id,
+                tipo: "MEDICO"
+            });
+
+            return { token };
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao realizar login do médico", 500);
         }
-
-        const senhaValida = await bcrypt.compare(senha, medico.senha);
-
-        if (!senhaValida) {
-            throw new Error("CRM ou senha inválidos");
-        }
-
-        const dados = medico.toJSON();
-        delete dados.senha;
-
-        const token = gerarToken({
-            id: dados.id,
-            tipo: "MEDICO"
-        });
-
-        return {
-            token
-        };
     }
 
     async loginPaciente(cartaosus, senha) {
-        const paciente = await Paciente.scope(null).findOne({
-            where: { cartaosus }
-        });
+        try {
+            const paciente = await Paciente.findOne({
+                where: { cartaosus }
+            });
+            console.log(paciente.cartaosus)
+            if (!paciente) {
+                throw new BadRequestError("Cartão SUS ou senha inválidos");
+            }
 
-        if (!paciente) {
-            throw new Error("Cartão SUS ou senha inválidos");
+            const senhaValida = await bcrypt.compare(senha, paciente.senha);
+            
+
+            if (!senhaValida) {
+                throw new BadRequestError("Cartão SUS ou senha inválidos");
+            }
+
+            const dados = paciente.toJSON();
+            delete dados.senha;
+            
+            const token = gerarToken({
+                id: dados.id,
+                tipo: "PACIENTE"
+            });
+            console.log(token)
+
+            return { token };
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            throw new AppError("Erro ao realizar login do paciente", 500);
         }
-
-        const senhaValida = await bcrypt.compare(senha, paciente.senha);
-
-        if (!senhaValida) {
-            throw new Error("Cartão SUS ou senha inválidos");
-        }
-
-        const dados = paciente.toJSON();
-        delete dados.senha;
-
-        const token = gerarToken({
-            id: dados.id,
-            tipo: "PACIENTE"
-        });
-
-        return {
-            token
-        };
     }
 }
 

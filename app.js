@@ -32,18 +32,15 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use("/pacientes", pacienteRoutes);
-app.use("/medicos", medicoRoutes);
-app.use("/profissionais", profissionaisRoutes);
-app.use("/triagens", triagemRoutes);
-app.use("/unidades", unidadeRoutes);
-app.use("/agendamentos", agendamentoRoutes);
-app.use("/auth", authRoutes);
+app.use(pacienteRoutes);
+app.use(medicoRoutes);
+app.use(profissionaisRoutes);
+app.use(triagemRoutes);
+app.use(unidadeRoutes);
+app.use(agendamentoRoutes);
+app.use(authRoutes);
 
 app.use(errorHandler);
 
