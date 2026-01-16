@@ -47,7 +47,7 @@ router.post("/", medicoController.criar);
  *               items:
  *                 $ref: '#/components/schemas/Medico'
  */
-router.get("/", medicoController.listar);
+router.get("/saibamais", medicoController.listar);
 
 /**
  * @swagger

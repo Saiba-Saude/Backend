@@ -11,7 +11,7 @@ const AuthController = require("../controllers/authController");
 
 /**
  * @swagger
- * /login/profissional:
+ * /auth/login/profissional:
  *   post:
  *     summary: Login do profissional
  *     tags: [Auth]
@@ -35,7 +35,7 @@ router.post("/login/profissional", AuthController.loginProfissional);
 
 /**
  * @swagger
- * /login/medico:
+ * /auth/login/medico:
  *   post:
  *     summary: Login do médico
  *     tags: [Auth]

@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const db = require("../config/db");
 
-const Medico = db.sequelize.define("medico", {
+const Medico = db.sequelize.define("medicos", {
     idmedicos: {
         type: db.Sequelize.INTEGER,
         primaryKey: true,
@@ -21,7 +21,8 @@ const Medico = db.sequelize.define("medico", {
     },
     crm: {
         type: db.Sequelize.STRING(45),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     especializacao: {
         type: db.Sequelize.STRING(80),

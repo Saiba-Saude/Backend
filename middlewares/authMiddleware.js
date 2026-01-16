@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, "teste123");
 
         // injeta o payload inteiro no request
         req.usuario = decoded;

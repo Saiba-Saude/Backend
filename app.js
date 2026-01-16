@@ -34,13 +34,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(pacienteRoutes);
-app.use(medicoRoutes);
-app.use(profissionaisRoutes);
-app.use(triagemRoutes);
-app.use(unidadeRoutes);
-app.use(agendamentoRoutes);
-app.use(authRoutes);
+app.use("/pacientes", pacienteRoutes);
+app.use("/medicos", medicoRoutes);
+app.use("/profissional",profissionaisRoutes);
+app.use("/triagem",triagemRoutes);
+app.use("/unidade",unidadeRoutes);
+app.use("/agendamento",agendamentoRoutes);
+app.use("/auth",authRoutes);
 
 app.use(errorHandler);
 

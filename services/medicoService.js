@@ -7,6 +7,7 @@ class MedicoService {
         try {
             return await Medico.create(dados);
         } catch (error) {
+            console.log(error);
             if (error instanceof AppError) throw error;
             throw new AppError("Erro ao criar médico", 500);
         }
@@ -25,9 +26,7 @@ class MedicoService {
 
     async buscarPorId(id) {
         try {
-            const medico = await Medico.findByPk({
-                where: { idmedicos: id }
-            });
+            const medico = await Medico.findByPk(id);
 
             if (!medico) {
                 throw new NotFoundError("Médico não encontrado");

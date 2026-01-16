@@ -47,7 +47,31 @@ router.post("/saibamais", pacienteController.criar);
  *               items:
  *                 $ref: '#/components/schemas/Paciente'
  */
-router.get("/", pacienteController.listar);
+router.get("/saibamais", pacienteController.listar);
+
+/**
+ * @swagger
+ * /buscar-id/{id}:
+ *   get:
+ *     summary: Buscar paciente pelo ID
+ *     tags: [Paciente]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Paciente encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Paciente'
+ *       404:
+ *         description: Paciente não encontrado
+ */
+router.get("/:id", pacienteController.buscarPorId);
 
 /**
  * @swagger

@@ -28,7 +28,7 @@ class AuthService {
             delete dados.senha;
 
             const token = gerarToken({
-                id: dados.id,
+                id: dados.idprofissionais,
                 tipo: "PROFISSIONAL"
             });
 
@@ -59,7 +59,7 @@ class AuthService {
             delete dados.senha;
 
             const token = gerarToken({
-                id: dados.id,
+                id: dados.idmedicos,
                 tipo: "MEDICO"
             });
 
@@ -75,7 +75,7 @@ class AuthService {
             const paciente = await Paciente.findOne({
                 where: { cartaosus }
             });
-            console.log(paciente.cartaosus)
+
             if (!paciente) {
                 throw new BadRequestError("Cartão SUS ou senha inválidos");
             }
@@ -91,10 +91,9 @@ class AuthService {
             delete dados.senha;
             
             const token = gerarToken({
-                id: dados.id,
+                id: dados.idpacientes,
                 tipo: "PACIENTE"
             });
-            console.log(token)
 
             return { token };
         } catch (error) {
